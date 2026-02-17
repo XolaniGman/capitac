@@ -52,7 +52,7 @@ const Home = () => {
               <div className="mock-screen">
                 <img
                   src="/home-dashboard-preview.png"
-                  alt="Dashboard preview"
+                  alt="Capitec dashboard preview"
                   className="mock-preview"
                   loading="lazy"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
