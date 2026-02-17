@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    /* Capitec-like brand palette */
+    --brand-primary: #E51B24; /* brand red */
+    --brand-accent: #FFC20E; /* warm yellow/gold */
+    --brand-dark: #0B2540; /* deep navy/dark */
+    --bg-light: #FFF8F2; /* light warm background */
+    --card-bg: #FFFFFF; /* card surface */
+    --text-primary: #0B2540; /* primary text color */
+    --hover-bg: rgba(11,37,64,0.08);
+    --background: 220 25% 7%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 22% 10%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 22% 12%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 172 66% 50%;
+    --primary-foreground: 220 25% 7%;
+
+    --secondary: 220 20% 16%;
+    --secondary-foreground: 210 20% 80%;
+
+    --muted: 220 18% 14%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 172 40% 18%;
+    --accent-foreground: 172 66% 60%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 18% 18%;
+    /* Border color mapped to the provided golden tone (#EEBA69) */
+    --border-color: var(--brand-accent);
+    /* Also provide H S L components for usages that use hsl(var(--border)) */
+    --border: 36 80% 67%;
+    --input: 220 18% 18%;
+    --ring: 172 66% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 220 22% 10%;
+    --sidebar-foreground: 210 20% 80%;
+    --sidebar-primary: 172 66% 50%;
+    --sidebar-primary-foreground: 220 25% 7%;
+    --sidebar-accent: 220 18% 14%;
+    --sidebar-accent-foreground: 210 20% 80%;
+    --sidebar-border: 220 18% 18%;
+    --sidebar-ring: 172 66% 50%;
+
+    /* Category colors */
+    --category-groceries: 0 100% 71%;
+    --category-entertainment: 170 63% 55%;
+    --category-transport: 195 65% 55%;
+    --category-dining: 47 90% 70%;
+    --category-shopping: 270 45% 72%;
+    --category-utilities: 207 66% 71%;
+
+    /* Status colors */
+    --status-success: 152 60% 48%;
+    --status-warning: 38 92% 55%;
+    --status-danger: 0 72% 55%;
+
+    /* Chart */
+    --chart-1: 172 66% 50%;
+    --chart-2: 0 100% 71%;
+    --chart-3: 170 63% 55%;
+    --chart-4: 47 90% 70%;
+    --chart-5: 270 45% 72%;
+  }
+
+  .dark {
+    --background: 220 25% 7%;
+    --foreground: 210 20% 92%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    /* Override background and text to the requested palette: warm beige background and muted olive text */
+    /* Use brand palette for app background and text */
+    background-color: var(--bg-light, #FFF8F2);
+    color: var(--text-primary, #0B2540);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  code, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50 shadow-lg;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.3);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--category-entertainment))];
+  }
+}
+
+/* Global site footer */
+.site-footer {
+  padding: 1.25rem 0;
+  background: transparent;
+  color: rgba(34,49,35,0.6);
+  border-top: 1px solid rgba(11,37,64,0.04);
+}
+.site-footer-inner{ max-width:1100px; margin:0 auto; padding:0 1rem; text-align:center; font-weight:500; }
+.site-footer a{ color: var(--brand-primary); text-decoration:none; font-weight:700; }
+.site-footer a:hover{ text-decoration:underline; }
